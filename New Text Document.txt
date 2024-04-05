@@ -1,0 +1,155 @@
+Var | Let | Const In JavaScript  
+---------------------------------
+
+Var : 
+-----
+
+Definition:
+           
+     -> Var is the oldest way to declare variables in JavaScript. It has function scope, meaning it's scoped to the function
+it's declared in, or globally if declared outside of a function.
+
+Working Principle:
+
+      -> Variables declared with var are hoisted to the top of their function or global scope. This means you can access them 
+before they are declared, but they will have the value undefined.
+
+Example :
+
+function example() {
+    var x = 10;
+    if (true) {
+        var y = 20;
+        console.log(x); // 10
+    }
+    console.log(y); // 20
+}
+example();
+
+OutPut : 
+10
+20
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Let :
+-----
+
+Definition :
+
+      -> let was introduced in ES6 (ECMAScript 2015) and provides block scope, meaning it's scoped to the block it's declared in 
+(e.g., within curly braces {}). Variables declared with let can be reassigned.
+
+Working Principle:
+
+      -> Variables declared with let are also hoisted, but they are not initialized until their declaration statement is evaluated. 
+This means you cannot access them before the declaration statement.
+
+Example :
+
+function example() {
+    let x = 10;
+    if (true) {
+        let y = 20;
+        console.log(x); // 10
+    }
+    console.log(y); // ReferenceError: y is not defined
+}
+
+example();
+
+OutPut :
+10
+Reference Error : y is not defined.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Const :
+-------
+
+Definition:
+
+      -> const also came with ES6. It declares a constant whose value cannot be changed once assigned. It also has block scope.
+
+Working Principle:
+
+      -> Variables declared with const must be initialized at the time of declaration, and their value cannot be reassigned.
+
+Example:
+
+function example() {
+    const x = 10;
+    if (true) {
+        const y = 20;
+        console.log(x); // 10
+    }
+    console.log(y); // ReferenceError: y is not defined
+}
+example();
+
+OutPut :
+10
+Reference Error : y is not defined. 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Summary:
+
+      => var has function scope and can be reassigned and redeclared.
+      => let has block scope and can be reassigned but not redeclared.
+      => const has block scope and cannot be reassigned or redeclared.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Hoisting :
+-------------
+
+       -> Hoisting is a JavaScript mechanism where variable declarations are moved to the top of their scope during the compilation phase. 
+This means that you can use a variable before it is declared. However, only the declaration is hoisted, not the initialization.
+
+Example:
+
+console.log(message); // Output: undefined
+var message = "Hello, World!";
+
+Output : 
+undefined
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Block Scope :
+------------------
+
+       -> Block scope is a feature in JavaScript that limits the scope of a variable to the block it is declared in. 
+A block is defined by a pair of curly braces {}.
+
+Example :
+
+if (true) {
+  let message = "Hello, World!";
+  console.log(message); // Output: Hello, World!
+}
+console.log(message); // ReferenceError: message is not defined
+
+OutPut :
+Hello, World!
+ReferenceError: message is not defined
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Temporal Dead Zone (TDZ) :
+---------------------------------------
+
+          -> TDZ is a feature in JavaScript that prevents the use of a variable before it is declared. 
+This is only applicable to variables declared with let and const.
+
+Example :
+
+console.log(message); // ReferenceError: message is not defined
+let message = "Hello, World!";
+
+OutPut :
+ReferenceError: message is not defined
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
